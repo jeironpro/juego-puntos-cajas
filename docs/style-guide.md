@@ -38,10 +38,10 @@ una función.
 
 ### Jugadores
 
-| Token              | Hex       | Uso                        |
-| ------------------ | --------- | -------------------------- |
-| `--color-player-1` | `#1A1A1A` | Jugador 1 (TÚ): tinta      |
-| `--color-player-2` | `#E4572E` | Jugador 2 (BOT): bermellón |
+| Token              | Hex       | Uso                   |
+| ------------------ | --------- | --------------------- |
+| `--color-player-1` | `#2E51D4` | Jugador 1 (TÚ): azul  |
+| `--color-player-2` | `#D4362A` | Jugador 2 (BOT): rojo |
 
 ### Estados de feedback
 
@@ -53,13 +53,14 @@ una función.
 
 ### Tablero
 
-| Token                       | Hex                    | Uso                                |
-| --------------------------- | ---------------------- | ---------------------------------- |
-| `--color-dot`               | `#1A1A1A`              | Puntos de la grilla                |
-| `--color-edge-empty`        | `#D8D3CA`              | Aristas sin jugar (hairline tenue) |
-| `--color-edge-hover`        | `#E4572E`              | Arista bajo el cursor              |
-| `--color-box-fill-player-1` | `rgb(26 26 26 / 7%)`   | Relleno de las cajas del jugador 1 |
-| `--color-box-fill-player-2` | `rgb(228 87 46 / 12%)` | Relleno de las cajas del jugador 2 |
+| Token                | Hex       | Uso                                |
+| -------------------- | --------- | ---------------------------------- |
+| `--color-dot`        | `#1A1A1A` | Puntos de la grilla                |
+| `--color-edge-empty` | `#D8D3CA` | Aristas sin jugar (hairline tenue) |
+| `--color-edge-hover` | `#E4572E` | Arista bajo el cursor              |
+
+Las aristas colocadas se pintan con el color del jugador y las cajas completadas se
+rellenan por completo con ese mismo color.
 
 ## 2. Tipografía
 
