@@ -3,9 +3,12 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Board from "./Board.jsx";
 import { createInitialGame } from "@/features/game/board.js";
+import { applyMove } from "@/features/game/game.js";
 import {
   EDGE_HORIZONTAL,
   EDGE_VERTICAL,
+  PLAYER_1,
+  PLAYER_2,
   TOTAL_EDGES,
 } from "@/features/game/constants.js";
 
@@ -52,5 +55,42 @@ describe("Board", () => {
       }),
     );
     expect(onMove).not.toHaveBeenCalled();
+  });
+
+  it("marks the edges of a completed box as black", () => {
+    let game = createInitialGame();
+    game = applyMove(game, EDGE_HORIZONTAL, 0, 0, PLAYER_1);
+    game = applyMove(game, EDGE_HORIZONTAL, 1, 0, PLAYER_2);
+    game = applyMove(game, EDGE_VERTICAL, 0, 0, PLAYER_1);
+    game = applyMove(game, EDGE_VERTICAL, 0, 1, PLAYER_2);
+    const { container } = render(<Board game={game} onMove={() => {}} />);
+    const names = [
+      "Arista horizontal fila 0 columna 0",
+      "Arista horizontal fila 1 columna 0",
+      "Arista vertical fila 0 columna 0",
+      "Arista vertical fila 0 columna 1",
+    ];
+    for (const name of names) {
+      expect(screen.getByRole("button", { name })).toHaveClass(
+        "edge-button--completed",
+      );
+    }
+    expect(container.querySelectorAll(".edge-button--completed")).toHaveLength(
+      4,
+    );
+  });
+
+  it("keeps player colors on edges not bordering a completed box", () => {
+    let game = createInitialGame();
+    game = applyMove(game, EDGE_HORIZONTAL, 0, 0, PLAYER_1);
+    const { container } = render(<Board game={game} onMove={() => {}} />);
+    expect(
+      screen.getByRole("button", {
+        name: "Arista horizontal fila 0 columna 0",
+      }),
+    ).toHaveClass("edge-button--player-1");
+    expect(container.querySelectorAll(".edge-button--completed")).toHaveLength(
+      0,
+    );
   });
 });
