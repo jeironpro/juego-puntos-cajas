@@ -65,16 +65,20 @@
   transform: translateX(-50%);
 }
 
-/* Hover: la arista libre se resalta con el color de acento y se engrosa */
-.edge-button--horizontal:hover::before,
-.edge-button--horizontal:focus-visible::before {
+/* Hover: solo las aristas libres se resaltan con el color de acento y se
+   engrosan; las colocadas conservan el color del jugador (están deshabilitadas) */
+.edge-button:not([disabled]):hover::before,
+.edge-button:not([disabled]):focus-visible::before {
   background-color: var(--color-edge-hover);
+}
+
+.edge-button--horizontal:not([disabled]):hover::before,
+.edge-button--horizontal:not([disabled]):focus-visible::before {
   height: 38%;
 }
 
-.edge-button--vertical:hover::before,
-.edge-button--vertical:focus-visible::before {
-  background-color: var(--color-edge-hover);
+.edge-button--vertical:not([disabled]):hover::before,
+.edge-button--vertical:not([disabled]):focus-visible::before {
   width: 38%;
 }
 
