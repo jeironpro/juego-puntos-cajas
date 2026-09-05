@@ -60,6 +60,8 @@ function App() {
             player1Name={player1Name}
             player2Name={player2Name}
             badge={badge}
+            onRestart={restart}
+            onMenu={goHome}
           />
           {gameOver && (
             <GameOver winnerName={winnerName} onPlayAgain={playAgain} onMenu={goHome} />
