@@ -8,9 +8,9 @@ export const DIFFICULTY_DEPTHS = {
 
 // Etiquetas visibles de cada dificultad
 export const DIFFICULTY_LABELS = {
-  easy: 'Fácil',
-  medium: 'Medio',
-  hard: 'Difícil',
+  easy: "Fácil",
+  medium: "Medio",
+  hard: "Difícil",
 };
 
-export const DEFAULT_DIFFICULTY = 'medium';
+export const DEFAULT_DIFFICULTY = "medium";

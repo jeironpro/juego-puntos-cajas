@@ -1,13 +1,16 @@
-import { useState } from 'react';
-import Button from '@/components/ui/Button.jsx';
-import Icon from '@/components/ui/Icon.jsx';
-import { DEFAULT_DIFFICULTY, DIFFICULTY_LABELS } from '@/features/bot/difficulty.js';
-import './HomeScreen.css';
+import { useState } from "react";
+import Button from "@/components/ui/Button.jsx";
+import Icon from "@/components/ui/Icon.jsx";
+import {
+  DEFAULT_DIFFICULTY,
+  DIFFICULTY_LABELS,
+} from "@/features/bot/difficulty.js";
+import "./HomeScreen.css";
 
 // Pantalla de inicio: elige el modo (contra el bot o dos jugadores) y, en modo
 // bot, la dificultad; al pulsar Jugar se inicia la partida con esas opciones.
 function HomeScreen({ onStart }) {
-  const [mode, setMode] = useState('bot');
+  const [mode, setMode] = useState("bot");
   const [difficulty, setDifficulty] = useState(DEFAULT_DIFFICULTY);
 
   return (
@@ -18,22 +21,21 @@ function HomeScreen({ onStart }) {
       <div className="home__card">
         <div className="home__modes">
           <Button
-            variant={mode === 'bot' ? 'primary' : 'secondary'}
-            onClick={() => setMode('bot')}
+            variant={mode === "bot" ? "primary" : "secondary"}
+            onClick={() => setMode("bot")}
           >
             <Icon name="smart_toy" />
             vs Bot
           </Button>
           <Button
-            variant={mode === 'local' ? 'primary' : 'secondary'}
-            onClick={() => setMode('local')}
+            variant={mode === "local" ? "primary" : "secondary"}
+            onClick={() => setMode("local")}
           >
-            <Icon name="group" />
-            2 Jugadores
+            <Icon name="group" />2 Jugadores
           </Button>
         </div>
 
-        {mode === 'bot' && (
+        {mode === "bot" && (
           <div className="home__difficulty">
             <span className="home__label">Dificultad</span>
             <div className="home__difficulty-options">
@@ -41,7 +43,7 @@ function HomeScreen({ onStart }) {
                 <button
                   key={id}
                   type="button"
-                  className={`home__difficulty-option${difficulty === id ? ' home__difficulty-option--active' : ''}`}
+                  className={`home__difficulty-option${difficulty === id ? " home__difficulty-option--active" : ""}`}
                   aria-pressed={difficulty === id}
                   onClick={() => setDifficulty(id)}
                 >
@@ -52,7 +54,10 @@ function HomeScreen({ onStart }) {
           </div>
         )}
 
-        <Button className="home__play" onClick={() => onStart(mode, difficulty)}>
+        <Button
+          className="home__play"
+          onClick={() => onStart(mode, difficulty)}
+        >
           Jugar
         </Button>
       </div>

@@ -1,8 +1,13 @@
-import { applyMove, getLegalEdges, isGameOver, getWinner } from '@/features/game/game.js';
-import { switchPlayer, countBoxes } from '@/features/game/board.js';
-import { getBoxesAroundEdge, edgeKey } from '@/features/game/edges.js';
-import { EDGE_HORIZONTAL, EDGE_VERTICAL } from '@/features/game/constants.js';
-import { DIFFICULTY_DEPTHS } from './difficulty.js';
+import {
+  applyMove,
+  getLegalEdges,
+  isGameOver,
+  getWinner,
+} from "@/features/game/game.js";
+import { switchPlayer, countBoxes } from "@/features/game/board.js";
+import { getBoxesAroundEdge, edgeKey } from "@/features/game/edges.js";
+import { EDGE_HORIZONTAL, EDGE_VERTICAL } from "@/features/game/constants.js";
+import { DIFFICULTY_DEPTHS } from "./difficulty.js";
 
 // Puntuación que representa una victoria segura (muy por encima del material)
 const WIN_SCORE = 1_000_000;
@@ -16,7 +21,10 @@ const MAX_MOVES_PER_NODE = 12;
 
 // Evalúa el tablero como diferencia de cajas entre el bot y el rival
 function evaluate(game, botPlayer) {
-  return (countBoxes(game, botPlayer) - countBoxes(game, switchPlayer(botPlayer))) * BOX_VALUE;
+  return (
+    (countBoxes(game, botPlayer) - countBoxes(game, switchPlayer(botPlayer))) *
+    BOX_VALUE
+  );
 }
 
 // Cajas que completaría una arista si se colocara ahora mismo (sin copiar estado)
@@ -40,7 +48,8 @@ function immediateBoxes(game, type, row, col) {
 function orderMoves(game) {
   return getLegalEdges(game).sort(
     (a, b) =>
-      immediateBoxes(game, b.type, b.row, b.col) - immediateBoxes(game, a.type, a.row, a.col),
+      immediateBoxes(game, b.type, b.row, b.col) -
+      immediateBoxes(game, a.type, a.row, a.col),
   );
 }
 
@@ -76,10 +85,15 @@ function search(game, botPlayer, depth, alpha, beta) {
 function pickGreedyMove(game, edges, random) {
   const scored = edges.map((edge) => ({
     edge,
-    score: evaluate(applyMove(game, edge.type, edge.row, edge.col, game.turn), game.turn),
+    score: evaluate(
+      applyMove(game, edge.type, edge.row, edge.col, game.turn),
+      game.turn,
+    ),
   }));
   const bestScore = Math.max(...scored.map((entry) => entry.score));
-  const bestEdges = scored.filter((entry) => entry.score === bestScore).map((entry) => entry.edge);
+  const bestEdges = scored
+    .filter((entry) => entry.score === bestScore)
+    .map((entry) => entry.edge);
   if (random() < GREEDY_RATIO) {
     return bestEdges[Math.floor(random() * bestEdges.length)];
   }

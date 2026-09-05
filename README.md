@@ -24,14 +24,14 @@ punto y vuelve a jugar (turno extra).
 
 ## Stack
 
-| Tecnología | Uso |
-| --- | --- |
-| React 19 | Interfaz de usuario (SPA) |
-| Vite 8 | Bundler y dev server |
-| Yarn 4 | Gestor de paquetes (fijado en `packageManager`) |
-| Vitest + Testing Library | Tests unitarios y de componentes |
-| ESLint + Prettier | Lint y formato (Husky + lint-staged en pre-commit) |
-| GitHub Actions | CI: lint, tests y build por PR |
+| Tecnología               | Uso                                                |
+| ------------------------ | -------------------------------------------------- |
+| React 19                 | Interfaz de usuario (SPA)                          |
+| Vite 8                   | Bundler y dev server                               |
+| Yarn 4                   | Gestor de paquetes (fijado en `packageManager`)    |
+| Vitest + Testing Library | Tests unitarios y de componentes                   |
+| ESLint + Prettier        | Lint y formato (Husky + lint-staged en pre-commit) |
+| GitHub Actions           | CI: lint, tests y build por PR                     |
 
 ## Cómo correr
 
@@ -74,7 +74,7 @@ en `src/styles/tokens.css`. Los iconos usan la librería Material Symbols de Goo
 
 ## Calidad
 
-- Tests: 59 tests entre el motor de reglas, el bot, hooks y componentes (`yarn test`).
+- Tests: 58 tests entre el motor de reglas, el bot, hooks y componentes (`yarn test`).
 - CI: pipeline en `.github/workflows/ci.yml` que ejecuta lint, tests y build en cada
   pull request y push a `main`.
 - Pre-commit: Husky + lint-staged aplican ESLint y Prettier sobre los archivos

@@ -1,8 +1,8 @@
 // Botón genérico con las variantes del libro de estilo: primario, secundario y ghost
 function Button({
-  variant = 'primary',
-  className = '',
-  type = 'button',
+  variant = "primary",
+  className = "",
+  type = "button",
   disabled = false,
   onClick,
   children,
@@ -10,7 +10,7 @@ function Button({
   return (
     <button
       type={type}
-      className={`button button--${variant}${className ? ` ${className}` : ''}`}
+      className={`button button--${variant}${className ? ` ${className}` : ""}`}
       disabled={disabled}
       onClick={onClick}
     >
