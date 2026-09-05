@@ -1,7 +1,7 @@
 import { PLAYER_1, PLAYER_2 } from "@/features/game/constants.js";
 
-// Celda de una caja: muestra un relleno sutil con el color del jugador
-// propietario cuando la caja está completada; si está libre queda vacía
+// Celda de una caja: al completarse se rellena por completo con el color del
+// jugador propietario; si está libre queda vacía
 function BoxCell({ owner }) {
   const ownerClass =
     owner === PLAYER_1
