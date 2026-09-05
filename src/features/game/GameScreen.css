@@ -6,10 +6,7 @@
   width: 100%;
 }
 
-.game-screen__turn {
-  font-size: var(--font-size-label);
-  font-weight: var(--font-weight-semibold);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-secondary);
+.game-screen__controls {
+  display: flex;
+  gap: var(--spacing-lg);
 }
