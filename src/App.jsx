@@ -1,9 +1,18 @@
-// Pantalla inicial temporal: se reemplaza en los siguientes PRs por el menú y la partida
+import { useGame } from "@/hooks/useGame.js";
+import GameScreen from "@/features/game/GameScreen.jsx";
+import "./App.css";
+
+// Composición raíz: título del juego y pantalla de partida.
+// El menú con la selección de modo se incorpora en un PR posterior.
 function App() {
+  const { game, makeMove } = useGame();
+
   return (
     <main className="app">
-      <h1>Puntos y Cajas</h1>
-      <p>Juego de puntos y cajas 6x6.</p>
+      <header className="app__header">
+        <h1 className="app__title">Puntos y Cajas</h1>
+      </header>
+      <GameScreen game={game} onMove={makeMove} />
     </main>
   );
 }

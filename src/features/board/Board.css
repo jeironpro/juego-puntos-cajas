@@ -1,0 +1,112 @@
+.board {
+  width: min(92vw, 460px);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg);
+}
+
+.board__grid {
+  /* el número de celdas por lado lo define GRID_SIZE (6 puntos -> 11 celdas) */
+  display: grid;
+  grid-template-columns: repeat(var(--board-cells), 1fr);
+  grid-template-rows: repeat(var(--board-cells), 1fr);
+  aspect-ratio: 1;
+}
+
+.board__dot {
+  width: 36%;
+  height: 36%;
+  place-self: center;
+  background-color: var(--color-dot);
+  border-radius: var(--radius-full);
+}
+
+.edge-button {
+  position: relative;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* La línea se dibuja con un pseudo-elemento: hairline tenue cuando está libre */
+.edge-button::before {
+  content: "";
+  position: absolute;
+  background-color: var(--color-edge-empty);
+  border-radius: 2px;
+  transition:
+    background-color 120ms ease,
+    height 120ms ease,
+    width 120ms ease;
+}
+
+.edge-button--horizontal::before {
+  left: 4%;
+  right: 4%;
+  top: 50%;
+  height: 16%;
+  transform: translateY(-50%);
+}
+
+.edge-button--vertical::before {
+  top: 4%;
+  bottom: 4%;
+  left: 50%;
+  width: 16%;
+  transform: translateX(-50%);
+}
+
+/* Hover: la arista libre se resalta con el color de acento y se engrosa */
+.edge-button--horizontal:hover::before,
+.edge-button--horizontal:focus-visible::before {
+  background-color: var(--color-edge-hover);
+  height: 38%;
+}
+
+.edge-button--vertical:hover::before,
+.edge-button--vertical:focus-visible::before {
+  background-color: var(--color-edge-hover);
+  width: 38%;
+}
+
+/* Aristas colocadas: línea sólida con el color del jugador */
+.edge-button--horizontal.edge-button--player-1::before,
+.edge-button--horizontal.edge-button--player-2::before {
+  height: 30%;
+}
+
+.edge-button--vertical.edge-button--player-1::before,
+.edge-button--vertical.edge-button--player-2::before {
+  width: 30%;
+}
+
+.edge-button--player-1::before {
+  background-color: var(--color-player-1);
+}
+
+.edge-button--player-2::before {
+  background-color: var(--color-player-2);
+}
+
+/* Cajas: relleno sutil del propietario con un pequeño margen interior */
+.box-cell {
+  position: relative;
+}
+
+.box-cell::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: var(--radius-sm);
+  transition: background-color 150ms ease;
+}
+
+.box-cell--player-1::before {
+  background-color: var(--color-box-fill-player-1);
+}
+
+.box-cell--player-2::before {
+  background-color: var(--color-box-fill-player-2);
+}
