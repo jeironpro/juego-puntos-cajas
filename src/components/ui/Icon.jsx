@@ -1,3 +1,5 @@
+import "./Icon.css";
+
 // Icono de la librería Material Symbols (variante Rounded), siempre decorativo
 function Icon({ name, className = "" }) {
   return (

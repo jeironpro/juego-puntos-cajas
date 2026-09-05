@@ -1,3 +1,5 @@
+import "./Button.css";
+
 // Botón genérico con las variantes del libro de estilo: primario, secundario y ghost
 function Button({
   variant = "primary",
