@@ -4,10 +4,10 @@ import {
   PLAYER_2,
 } from "@/features/game/constants.js";
 
-// Botón que representa una arista de la grilla. Cuando está colocada se
-// deshabilita y se pinta con el color del jugador que la jugó; si está libre
-// se resalta en hover con el color de acento.
-function EdgeButton({ type, row, col, placedBy, onClick }) {
+// Botón que representa una arista de la grilla. Libre: hairline tenue con
+// resaltado en hover. Colocada: color del jugador que la jugó. Cuando una de
+// las cajas que delimita se completa, la arista pasa a tinta (negra).
+function EdgeButton({ type, row, col, placedBy, completed = false, onClick }) {
   const handleClick = () => onClick(type, row, col);
   const orientationClass =
     type === EDGE_HORIZONTAL
@@ -19,12 +19,13 @@ function EdgeButton({ type, row, col, placedBy, onClick }) {
       : placedBy === PLAYER_2
         ? " edge-button--player-2"
         : "";
+  const completedClass = completed ? " edge-button--completed" : "";
   const orientationLabel = type === EDGE_HORIZONTAL ? "horizontal" : "vertical";
 
   return (
     <button
       type="button"
-      className={`edge-button ${orientationClass}${playerClass}`}
+      className={`edge-button ${orientationClass}${playerClass}${completedClass}`}
       aria-label={`Arista ${orientationLabel} fila ${row} columna ${col}`}
       disabled={placedBy !== undefined}
       onClick={handleClick}

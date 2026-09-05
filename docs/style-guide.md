@@ -59,8 +59,9 @@ una función.
 | `--color-edge-empty` | `#D8D3CA` | Aristas sin jugar (hairline tenue) |
 | `--color-edge-hover` | `#E4572E` | Arista bajo el cursor              |
 
-Las aristas colocadas se pintan con el color del jugador y las cajas completadas se
-rellenan por completo con ese mismo color.
+Las aristas colocadas se pintan con el color del jugador; cuando una de las cajas
+que delimitan se completa, la arista pasa a tinta (negra). Las cajas completadas se
+rellenan por completo con el color del jugador que las completó.
 
 ## 2. Tipografía
 

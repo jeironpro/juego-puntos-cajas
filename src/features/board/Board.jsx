@@ -4,7 +4,7 @@ import {
   EDGE_VERTICAL,
   GRID_SIZE,
 } from "@/features/game/constants.js";
-import { boxKey, edgeKey } from "@/features/game/edges.js";
+import { boxKey, edgeKey, getBoxesAroundEdge } from "@/features/game/edges.js";
 import EdgeButton from "./EdgeButton.jsx";
 import BoxCell from "./BoxCell.jsx";
 import "./Board.css";
@@ -42,13 +42,20 @@ function Board({ game, onMove, disabled = false }) {
         const type = isHorizontalEdge ? EDGE_HORIZONTAL : EDGE_VERTICAL;
         const edgeRow = Math.floor(row / 2);
         const edgeCol = Math.floor(col / 2);
+        const placedBy = game.edges.get(edgeKey(type, edgeRow, edgeCol));
+        // la arista pasa a tinta (negra) cuando alguna de las cajas que
+        // delimita ya está completada
+        const completed = getBoxesAroundEdge(type, edgeRow, edgeCol).some(
+          (box) => game.boxes.has(boxKey(box.row, box.col)),
+        );
         cells.push(
           <EdgeButton
             key={key}
             type={type}
             row={edgeRow}
             col={edgeCol}
-            placedBy={game.edges.get(edgeKey(type, edgeRow, edgeCol))}
+            placedBy={placedBy}
+            completed={completed}
             onClick={handleEdgeClick}
           />,
         );

@@ -101,6 +101,11 @@
   background-color: var(--color-player-2);
 }
 
+/* Aristas que delimitan una caja completada: pasan a tinta (negra) */
+.edge-button--completed::before {
+  background-color: var(--color-dot);
+}
+
 /* Cajas: al completarse se rellenan por completo con el color del jugador.
    El relleno abarca de punto a punto (inset negativo) y se dibuja por debajo
    de las aristas y los puntos, que quedan siempre visibles encima. */
