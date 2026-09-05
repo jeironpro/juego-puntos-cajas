@@ -15,12 +15,6 @@ export function boxKey(row, col) {
   return `${row}-${col}`;
 }
 
-// Devuelve las coordenadas de la arista a partir de su clave
-export function parseEdgeKey(key) {
-  const [type, row, col] = key.split("-");
-  return { type, row: Number(row), col: Number(col) };
-}
-
 // Cajas adyacentes a una arista (1 o 2 según su posición en el borde)
 export function getBoxesAroundEdge(type, row, col) {
   const boxes = [];

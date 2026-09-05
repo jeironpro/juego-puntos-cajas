@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { createInitialGame } from '@/features/game/board.js';
-import { applyMove, isGameOver } from '@/features/game/game.js';
-import { chooseMove } from '@/features/bot/bot.js';
-import { PLAYER_2 } from '@/features/game/constants.js';
+import { useCallback, useEffect, useRef, useState } from "react";
+import { createInitialGame } from "@/features/game/board.js";
+import { applyMove, isGameOver } from "@/features/game/game.js";
+import { chooseMove } from "@/features/bot/bot.js";
+import { PLAYER_2 } from "@/features/game/constants.js";
 
 // Retardo antes de la jugada del bot para que se perciba su turno
 const BOT_MOVE_DELAY_MS = 450;
@@ -24,13 +24,20 @@ export function useGame({ botDifficulty = null } = {}) {
   // estado (reinicio, salida al menú); al completar cajas conserva el turno y
   // el efecto se vuelve a ejecutar con el nuevo estado
   useEffect(() => {
-    if (botDifficulty === null || game.turn !== PLAYER_2 || isGameOver(game)) return undefined;
+    if (botDifficulty === null || game.turn !== PLAYER_2 || isGameOver(game))
+      return undefined;
 
     botTimeoutRef.current = setTimeout(() => {
       const edge = chooseMove(game, botDifficulty);
       if (edge !== null) {
         setGame((current) => {
-          const next = applyMove(current, edge.type, edge.row, edge.col, current.turn);
+          const next = applyMove(
+            current,
+            edge.type,
+            edge.row,
+            edge.col,
+            current.turn,
+          );
           return next === null ? current : next;
         });
       }

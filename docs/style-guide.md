@@ -4,7 +4,7 @@
 
 Este documento define el sistema de diseño del juego Puntos y Cajas. Es la única
 fuente de verdad para colores, tipografía, espaciados y componentes base: cualquier
-valor visual nuevo debe derivarse de aquí y materializarse como *custom property* de
+valor visual nuevo debe derivarse de aquí y materializarse como _custom property_ de
 CSS en `src/styles/tokens.css`.
 
 ## Referencia visual
@@ -20,64 +20,64 @@ una función.
 
 ### Papel y tinta
 
-| Token | Hex | Uso |
-| ---------------------- | --------- | ------------------------------------------------ |
-| `--color-bg` | `#FAF8F5` | Fondo general: tono de papel cálido |
-| `--color-surface` | `#FFFFFF` | Superficies elevadas (cards, paneles) |
-| `--color-text-primary` | `#1A1A1A` | Texto principal: tinta |
+| Token                    | Hex       | Uso                                   |
+| ------------------------ | --------- | ------------------------------------- |
+| `--color-bg`             | `#FAF8F5` | Fondo general: tono de papel cálido   |
+| `--color-surface`        | `#FFFFFF` | Superficies elevadas (cards, paneles) |
+| `--color-text-primary`   | `#1A1A1A` | Texto principal: tinta                |
 | `--color-text-secondary` | `#6E6A63` | Texto secundario (subtítulos, ayudas) |
-| `--color-border` | `#E5E1DA` | Hairlines: bordes y divisores |
+| `--color-border`         | `#E5E1DA` | Hairlines: bordes y divisores         |
 
 ### Acento editorial
 
-| Token | Hex | Uso |
-| -------------------------- | --------- | ----------------------------------------- |
-| `--color-accent` | `#E4572E` | Acento bermellón: hover, resaltados, jugador 2 |
-| `--color-accent-hover` | `#C93F1D` | Hover de elementos de acento |
-| `--color-accent-subtle` | `#FDF0EB` | Fondos suaves de acento (badges, selección) |
+| Token                   | Hex       | Uso                                            |
+| ----------------------- | --------- | ---------------------------------------------- |
+| `--color-accent`        | `#E4572E` | Acento bermellón: hover, resaltados, jugador 2 |
+| `--color-accent-hover`  | `#C93F1D` | Hover de elementos de acento                   |
+| `--color-accent-subtle` | `#FDF0EB` | Fondos suaves de acento (badges, selección)    |
 
 ### Jugadores
 
-| Token | Hex | Uso |
-| ---------------------- | --------- | -------------------------------------------- |
-| `--color-player-1` | `#1A1A1A` | Jugador 1 (TÚ): tinta |
+| Token              | Hex       | Uso                        |
+| ------------------ | --------- | -------------------------- |
+| `--color-player-1` | `#1A1A1A` | Jugador 1 (TÚ): tinta      |
 | `--color-player-2` | `#E4572E` | Jugador 2 (BOT): bermellón |
 
 ### Estados de feedback
 
-| Token | Hex | Uso |
-| ---------------------- | --------- | ----------------------------------- |
+| Token             | Hex       | Uso                                   |
+| ----------------- | --------- | ------------------------------------- |
 | `--color-success` | `#2E7D4F` | Éxito (victorias, mensajes positivos) |
-| `--color-error` | `#C02F1D` | Error (jugadas inválidas) |
-| `--color-warning` | `#A66A13` | Advertencia (avisos) |
+| `--color-error`   | `#C02F1D` | Error (jugadas inválidas)             |
+| `--color-warning` | `#A66A13` | Advertencia (avisos)                  |
 
 ### Tablero
 
-| Token | Hex | Uso |
-| ------------------------------ | ------------------- | --------------------------------------------- |
-| `--color-dot` | `#1A1A1A` | Puntos de la grilla |
-| `--color-edge-empty` | `#D8D3CA` | Aristas sin jugar (hairline tenue) |
-| `--color-edge-hover` | `#E4572E` | Arista bajo el cursor |
-| `--color-box-fill-player-1` | `rgb(26 26 26 / 7%)` | Relleno de las cajas del jugador 1 |
+| Token                       | Hex                    | Uso                                |
+| --------------------------- | ---------------------- | ---------------------------------- |
+| `--color-dot`               | `#1A1A1A`              | Puntos de la grilla                |
+| `--color-edge-empty`        | `#D8D3CA`              | Aristas sin jugar (hairline tenue) |
+| `--color-edge-hover`        | `#E4572E`              | Arista bajo el cursor              |
+| `--color-box-fill-player-1` | `rgb(26 26 26 / 7%)`   | Relleno de las cajas del jugador 1 |
 | `--color-box-fill-player-2` | `rgb(228 87 46 / 12%)` | Relleno de las cajas del jugador 2 |
 
 ## 2. Tipografía
 
-- **Display**: `Fraunces` (Google Fonts), serif editorial con *optical sizing*.
+- **Display**: `Fraunces` (Google Fonts), serif editorial con _optical sizing_.
   Se usa para el título del juego y encabezados. Token: `--font-family-display`.
 - **Base**: `Inter` (Google Fonts) con fallback `system-ui, -apple-system, sans-serif`.
   Se usa para el resto de la interfaz. Token: `--font-family-base`.
 - **Etiquetas**: en mayúsculas con tracking `0.08em`, peso semibold: es la firma
   tipográfica del estilo editorial.
 
-| Nivel | Token | Tamaño | Peso | Uso |
-| ----------- | ---------------------- | ----------- | ---------------- | ----------------------------- |
-| Display | `--font-size-display` | 40px | 500 | Título del juego |
-| Título | `--font-size-title` | 24px | 500 | Títulos de pantalla |
-| Subtítulo | `--font-size-subtitle` | 18px | 600 | Subtítulos, nombres de jugador |
-| Cuerpo | `--font-size-body` | 16px | 400 | Texto general |
-| Label | `--font-size-label` | 13px | 600 | Etiquetas, botones, marcador |
-| Caption | `--font-size-caption` | 12px | 400 | Ayudas, metadatos |
+| Nivel     | Token                  | Tamaño | Peso | Uso                            |
+| --------- | ---------------------- | ------ | ---- | ------------------------------ |
+| Display   | `--font-size-display`  | 40px   | 500  | Título del juego               |
+| Título    | `--font-size-title`    | 24px   | 500  | Títulos de pantalla            |
+| Subtítulo | `--font-size-subtitle` | 18px   | 600  | Subtítulos, nombres de jugador |
+| Cuerpo    | `--font-size-body`     | 16px   | 400  | Texto general                  |
+| Label     | `--font-size-label`    | 13px   | 600  | Etiquetas, botones, marcador   |
+| Caption   | `--font-size-caption`  | 12px   | 400  | Ayudas, metadatos              |
 
 - Interlineado de títulos: 1.2; de cuerpo: 1.5.
 
@@ -90,11 +90,11 @@ una función.
   grilla interna (6x6 puntos, 5x5 cajas).
 - **Breakpoints** (mobile-first, `min-width`):
 
-| Breakpoint | Valor |
+| Breakpoint | Valor  |
 | ---------- | ------ |
-| `sm` | 640px |
-| `md` | 768px |
-| `lg` | 1024px |
+| `sm`       | 640px  |
+| `md`       | 768px  |
+| `lg`       | 1024px |
 
 > Nota: los breakpoints se documentan como referencia, pero las media queries usan el
 > valor literal (`@media (min-width: 768px)`), porque CSS no permite `var()` dentro
@@ -102,15 +102,15 @@ una función.
 
 ## 4. Radios, sombras y elevación
 
-| Token | Valor | Uso |
-| --------------- | ------------------------------ | ----------------------------------- |
-| `--radius-sm` | 4px | Inputs, badges, elementos pequeños |
-| `--radius-md` | 8px | Botones |
-| `--radius-lg` | 12px | Cards, paneles |
-| `--radius-full` | 9999px | Píldoras, avatares |
-| `--shadow-sm` | `0 1px 2px rgb(0 0 0 / 4%)` | Bordes suaves |
-| `--shadow-md` | `0 2px 8px rgb(0 0 0 / 6%)` | Cards en reposo |
-| `--shadow-lg` | `0 12px 32px rgb(0 0 0 / 10%)` | Modales y elementos flotantes |
+| Token           | Valor                          | Uso                                |
+| --------------- | ------------------------------ | ---------------------------------- |
+| `--radius-sm`   | 4px                            | Inputs, badges, elementos pequeños |
+| `--radius-md`   | 8px                            | Botones                            |
+| `--radius-lg`   | 12px                           | Cards, paneles                     |
+| `--radius-full` | 9999px                         | Píldoras, avatares                 |
+| `--shadow-sm`   | `0 1px 2px rgb(0 0 0 / 4%)`    | Bordes suaves                      |
+| `--shadow-md`   | `0 2px 8px rgb(0 0 0 / 6%)`    | Cards en reposo                    |
+| `--shadow-lg`   | `0 12px 32px rgb(0 0 0 / 10%)` | Modales y elementos flotantes      |
 
 La estética editorial tiende a lo plano: las sombras se usan con mesura.
 
@@ -119,12 +119,12 @@ La estética editorial tiende a lo plano: las sombras se usan con mesura.
 ### Botones
 
 - **Primario**: fondo `--color-text-primary` (tinta), texto `--color-bg`, label en
-  mayúsculas. *hover*: fondo `--color-accent`. *active*: fondo `--color-accent-hover`.
+  mayúsculas. _hover_: fondo `--color-accent`. _active_: fondo `--color-accent-hover`.
 - **Secundario**: fondo transparente, borde `--color-border`, texto
-  `--color-text-primary`. *hover*: borde `--color-text-primary`.
-- **Ghost**: sin fondo ni borde, texto `--color-text-primary`. *hover*: texto
+  `--color-text-primary`. _hover_: borde `--color-text-primary`.
+- **Ghost**: sin fondo ni borde, texto `--color-text-primary`. _hover_: texto
   `--color-accent`.
-- *disabled*: opacidad 0.4, sin sombra, cursor `not-allowed`.
+- _disabled_: opacidad 0.4, sin sombra, cursor `not-allowed`.
 - Todos los botones muestran anillo de foco `--focus-ring` en `:focus-visible` y un
   área táctil mínima de 44x44px.
 
@@ -145,7 +145,7 @@ La estética editorial tiende a lo plano: las sombras se usan con mesura.
 
 ## 6. Iconografía
 
-- Se usa la librería **Material Symbols** (Google), variante *Rounded*.
+- Se usa la librería **Material Symbols** (Google), variante _Rounded_.
 - No se incrustan emojis en la interfaz ni en el código: cualquier icono se renderiza
   como glifo de Material Symbols.
 
@@ -162,7 +162,7 @@ La estética editorial tiende a lo plano: las sombras se usan con mesura.
 
 ## 8. Implementación
 
-Los tokens se definen como *custom properties* en `src/styles/tokens.css` y se
+Los tokens se definen como _custom properties_ en `src/styles/tokens.css` y se
 consumen en todo el proyecto; no se repiten valores hex ni píxeles sueltos fuera de
 ese archivo. La nomenclatura de clases CSS sigue **BEM**
 (`bloque__elemento--modificador`).

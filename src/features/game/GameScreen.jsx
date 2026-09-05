@@ -1,10 +1,10 @@
-import Board from '@/features/board/Board.jsx';
-import Scoreboard from '@/features/scoreboard/Scoreboard.jsx';
-import Button from '@/components/ui/Button.jsx';
-import Icon from '@/components/ui/Icon.jsx';
-import { countBoxes } from '@/features/game/board.js';
-import { PLAYER_1, PLAYER_2 } from '@/features/game/constants.js';
-import './GameScreen.css';
+import Board from "@/features/board/Board.jsx";
+import Scoreboard from "@/features/scoreboard/Scoreboard.jsx";
+import Button from "@/components/ui/Button.jsx";
+import Icon from "@/components/ui/Icon.jsx";
+import { countBoxes } from "@/features/game/board.js";
+import { PLAYER_1, PLAYER_2 } from "@/features/game/constants.js";
+import "./GameScreen.css";
 
 // Pantalla de partida: marcador superior, tablero, controles (reiniciar y
 // volver al menú) y un aviso de turno para lectores de pantalla.
@@ -12,8 +12,8 @@ function GameScreen({
   game,
   onMove,
   disabled = false,
-  player1Name = 'TÚ',
-  player2Name = 'BOT',
+  player1Name = "TÚ",
+  player2Name = "BOT",
   badge = null,
   onRestart,
   onMenu,

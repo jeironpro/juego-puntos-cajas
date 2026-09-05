@@ -87,7 +87,7 @@
 
 .scoreboard__vs::before,
 .scoreboard__vs::after {
-  content: '';
+  content: "";
   width: var(--spacing-xxl);
   height: 1px;
   background-color: var(--color-border);

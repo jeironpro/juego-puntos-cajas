@@ -2,7 +2,6 @@ import { describe, it, expect } from "vitest";
 import {
   edgeKey,
   boxKey,
-  parseEdgeKey,
   getBoxesAroundEdge,
   isBoxComplete,
   getAllEdges,
@@ -14,19 +13,6 @@ describe("edge keys", () => {
     expect(edgeKey(EDGE_HORIZONTAL, 2, 3)).toBe("H-2-3");
     expect(edgeKey(EDGE_VERTICAL, 1, 4)).toBe("V-1-4");
     expect(boxKey(2, 3)).toBe("2-3");
-  });
-
-  it("parses an edge key back to its coordinates", () => {
-    expect(parseEdgeKey("H-2-3")).toEqual({
-      type: EDGE_HORIZONTAL,
-      row: 2,
-      col: 3,
-    });
-    expect(parseEdgeKey("V-0-5")).toEqual({
-      type: EDGE_VERTICAL,
-      row: 0,
-      col: 5,
-    });
   });
 });
 

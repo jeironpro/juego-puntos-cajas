@@ -1,4 +1,4 @@
-import { PLAYER_1, PLAYER_2 } from '@/features/game/constants.js';
+import { PLAYER_1, PLAYER_2 } from "@/features/game/constants.js";
 
 // Marcador superior: badge (modo/dificultad), nombres de los jugadores y
 // contadores de cajas; el jugador en turno queda resaltado con su color.
@@ -21,16 +21,20 @@ function Scoreboard({
         </div>
       )}
       <div className="scoreboard__names">
-        <span className={`scoreboard__name${player1Active ? ' scoreboard__name--player-1' : ''}`}>
+        <span
+          className={`scoreboard__name${player1Active ? " scoreboard__name--player-1" : ""}`}
+        >
           {player1Name}
         </span>
-        <span className={`scoreboard__name${player2Active ? ' scoreboard__name--player-2' : ''}`}>
+        <span
+          className={`scoreboard__name${player2Active ? " scoreboard__name--player-2" : ""}`}
+        >
           {player2Name}
         </span>
       </div>
       <div className="scoreboard__counts">
         <span
-          className={`scoreboard__count${player1Active ? ' scoreboard__count--player-1' : ''}`}
+          className={`scoreboard__count${player1Active ? " scoreboard__count--player-1" : ""}`}
         >
           {player1Count}
         </span>
@@ -38,7 +42,7 @@ function Scoreboard({
           VS
         </span>
         <span
-          className={`scoreboard__count${player2Active ? ' scoreboard__count--player-2' : ''}`}
+          className={`scoreboard__count${player2Active ? " scoreboard__count--player-2" : ""}`}
         >
           {player2Count}
         </span>
