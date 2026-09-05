@@ -1,4 +1,5 @@
 import { PLAYER_1, PLAYER_2 } from "@/features/game/constants.js";
+import "./Scoreboard.css";
 
 // Marcador superior: badge (modo/dificultad), nombres de los jugadores y
 // contadores de cajas; el jugador en turno queda resaltado con su color.
